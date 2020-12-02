@@ -1,63 +1,48 @@
 package dev.riska.days;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
+import dev.riska.models.AocDay;
 
-public class Day01 {
+import java.util.List;
+
+import static dev.riska.models.Part.PART_1;
+import static dev.riska.models.Part.PART_2;
+
+public class Day01 extends AocDay {
+    private final static String DAY = "day01";
 
     public void run() {
-        part1();
-        part2();
+        String answer1 = part1();
+        String answer2 = part2();
+        writeAnswer(DAY, answer1, answer2);
     }
 
-    private void part1() {
-        try {
-            List<String> lines = Files.lines(Paths.get("src/main/resources/inputs/day01.txt")).collect(Collectors.toList());
-            Integer answer = null;
-            for (String i : lines) {
-                for (String j : lines) {
-                    int sum = Integer.sum(Integer.parseInt(i), Integer.parseInt(j));
+    private String part1() {
+        List<String> lines = getInput(DAY);
+        Integer answer = null;
+        for (String i : lines) {
+            for (String j : lines) {
+                int sum = Integer.sum(Integer.parseInt(i), Integer.parseInt(j));
+                if (sum == 2020) {
+                    answer = Integer.parseInt(i) * Integer.parseInt(j);
+                }
+            }
+        }
+        return String.valueOf(answer);
+    }
+
+    private String part2() {
+        List<String> lines = getInput(DAY);
+        Integer answer = null;
+        for (String i : lines) {
+            for (String j : lines) {
+                for (String k : lines) {
+                    int sum = Integer.parseInt(i) + Integer.parseInt(j) + Integer.parseInt(k);
                     if (sum == 2020) {
-                        answer = Integer.parseInt(i) * Integer.parseInt(j);
+                        answer = Integer.parseInt(i) * Integer.parseInt(j) * Integer.parseInt(k);
                     }
                 }
             }
-            if (answer == null) {
-                System.out.println("Did not find any numbers");
-            } else {
-                System.out.println("[Part 1] - Answer is: " + answer);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-    }
-
-    private void part2() {
-        try {
-            List<String> lines = Files.lines(Paths.get("src/main/resources/inputs/day01.txt")).collect(Collectors.toList());
-            Integer answer = null;
-            for (String i : lines) {
-                for (String j : lines) {
-                    for (String k : lines) {
-                        int sum = Integer.parseInt(i) + Integer.parseInt(j) + Integer.parseInt(k);
-                        if (sum == 2020) {
-                            answer = Integer.parseInt(i) * Integer.parseInt(j) * Integer.parseInt(k);
-                        }
-                    }
-                }
-            }
-
-            if (answer == null) {
-                System.out.println("Did not find any numbers");
-            } else {
-                System.out.println("[Part 2] - Answer is: " + answer);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        return String.valueOf(answer);
     }
 }
