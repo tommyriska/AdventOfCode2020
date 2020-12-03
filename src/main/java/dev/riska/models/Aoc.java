@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class AocDay {
+public abstract class Aoc {
 
     public List<String> getInput(String dayNr) {
         try {

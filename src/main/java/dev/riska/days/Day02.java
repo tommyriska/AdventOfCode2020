@@ -1,15 +1,12 @@
 package dev.riska.days;
 
-import dev.riska.models.AocDay;
+import dev.riska.models.Aoc;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static dev.riska.models.Part.PART_1;
-import static dev.riska.models.Part.PART_2;
-
-public class Day02 extends AocDay {
+public class Day02 extends Aoc {
     private final static String DAY = "day02";
     private final static Pattern pattern = Pattern.compile("(\\d{1,2})-(\\d{1,2}) (\\w): (\\w+)");
 
