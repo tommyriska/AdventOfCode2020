@@ -14,5 +14,7 @@ public class Main {
         day04.run();
         Day05 day05 = new Day05();
         day05.run();
+        Day06 day06 = new Day06();
+        day06.run();
     }
 }
