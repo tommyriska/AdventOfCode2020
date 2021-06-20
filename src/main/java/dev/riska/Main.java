@@ -1,6 +1,7 @@
 package dev.riska;
 
 import dev.riska.days.*;
+import dev.riska.days.day07.Day07;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,5 +17,7 @@ public class Main {
         day05.run();
         Day06 day06 = new Day06();
         day06.run();
+        Day07 day07 = new Day07();
+        day07.run();
     }
 }
